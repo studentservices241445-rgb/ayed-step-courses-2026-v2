@@ -1,0 +1,99 @@
+/*
+ * Custom styles for Ayed Academy STEP courses site.
+ * These variables and classes complement Tailwind CSS to achieve
+ * the dark themed look and feel with subtle patterns and toast notifications.
+ */
+
+:root{
+  --bg:#0B0B0B;
+  --card:#111111;
+  --yellow:#F7C948;
+  --muted:#A7A7A7;
+  --stroke:rgba(255,255,255,.10);
+}
+
+html,body{background:var(--bg)}
+
+/* Watermark behind the page content */
+.wm{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.07;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(247,201,72,.55), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(247,201,72,.35), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(247,201,72,.25), transparent 40%);
+}
+.wm::after{
+  content:"Ayed Academy • STEP 2026 Courses";
+  position:absolute;
+  top:18%;
+  left:50%;
+  transform:translateX(-50%) rotate(-12deg);
+  font-weight:800;
+  letter-spacing:2px;
+  font-size: clamp(22px, 6vw, 64px);
+  color:white;
+  opacity:.22;
+  white-space:nowrap;
+}
+
+/* Subtle grid background used in the hero section */
+.grid-bg{
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  mask-image: radial-gradient(circle at 50% 20%, black 30%, transparent 70%);
+}
+
+/* Toast container and cards for notifications */
+.toast{
+  position:fixed;
+  left:16px;
+  bottom:16px;
+  z-index:60;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-width: min(360px, calc(100vw - 32px));
+}
+.toast-card{
+  background: rgba(17,17,17,.92);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 12px 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  transform: translateY(10px);
+  opacity: 0;
+  transition: all .35s ease;
+}
+.toast-card.show{
+  transform:translateY(0);
+  opacity:1;
+}
+.pulse-dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:var(--yellow);
+  box-shadow: 0 0 0 0 rgba(247,201,72,.55);
+  animation:pulse 1.8s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(247,201,72,.55)}
+  70%{box-shadow:0 0 0 12px rgba(247,201,72,0)}
+  100%{box-shadow:0 0 0 0 rgba(247,201,72,0)}
+}
+
+/* Adjust anchor scroll offset for sticky header */
+section{scroll-margin-top: 92px;}
+
+/* Custom scrollbar styling (optional) */
+::-webkit-scrollbar{height:10px;width:10px}
+::-webkit-scrollbar-thumb{background:rgba(247,201,72,.35);border-radius:999px}
+::-webkit-scrollbar-track{background:rgba(255,255,255,.04)}

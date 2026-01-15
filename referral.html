@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#F5F6FA" />
+  <title>برنامج الإحالة | أكاديمية عايد</title>
+  <meta name="description" content="شارك دورات STEP مع أصدقائك واربح مكافآت من أكاديمية عايد. اختر منصة النشر وطريقة السحب وابدأ الترويج الآن." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body class="text-[#242424] antialiased">
+  <div class="wm"></div>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-[var(--stroke)]">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-10 h-10 rounded-2xl bg-[var(--yellow)]/15 border border-[var(--yellow)]/35 grid place-items-center">
+          <span class="font-extrabold text-[var(--yellow)]">A</span>
+        </div>
+        <div class="min-w-0">
+          <div class="font-extrabold leading-tight truncate">أكاديمية عايد</div>
+          <div class="text-xs text-[#555] truncate">برنامج الإحالة</div>
+        </div>
+      </div>
+      <nav class="hidden lg:flex items-center gap-1 text-sm">
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="index.html">الرئيسية</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="intensive.html">الدورة المكثفة</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="comprehensive.html">الدورة الشاملة</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="referral.html">برنامج الإحالة</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="menuBtn" class="lg:hidden px-3 py-2 rounded-xl border border-[var(--stroke)] hover:border-gray-300 transition text-[#444]">
+          ☰
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="lg:hidden hidden border-t border-[var(--stroke)] bg-white/90 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="index.html">الرئيسية</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="intensive.html">الدورة المكثفة</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="comprehensive.html">الدورة الشاملة</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="referral.html">برنامج الإحالة</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <section class="max-w-6xl mx-auto px-4 pt-12 pb-12">
+      <h1 class="text-3xl font-extrabold mb-4">💸 برنامج الإحالة والمكافآت</h1>
+      <p class="text-[#555] leading-relaxed max-w-2xl mb-6">
+        شارك رابط التسجيل في دوراتنا مع الأصدقاء أو المتابعين عبر منصات التواصل، وستحصل على مكافأة قدرها <span class="font-bold">2 دولار</span> (حوالي 7.5 ريال) عن كل شخص يشترك ويؤكد الدفع عبر رابطك.
+        يمكنك اختيار طريقة الحصول على المكافأة إمّا عبر نجوم تيليجرام أو تحويل بنكي. يتم السحب عند بلوغ رصيدك <span class="font-bold">100 دولار</span> (حوالي 382 ريال).
+      </p>
+      <form id="referralForm" class="space-y-5 bg-[var(--card)] p-6 rounded-2xl border border-[var(--stroke)] shadow-md">
+        <div>
+          <label class="text-sm font-bold text-[#444]">اسمك (اختياري)</label>
+          <input id="refName" type="text" class="mt-2 w-full px-4 py-3 rounded-xl bg-white border border-[var(--stroke)] focus:outline-none focus:border-[var(--yellow)]/60" placeholder="مثال: محمد العايد" />
+        </div>
+        <div>
+          <label class="text-sm font-bold text-[#444]">منصة النشر</label>
+          <select id="refSource" class="mt-2 w-full px-4 py-3 rounded-xl bg-white border border-[var(--stroke)] focus:outline-none focus:border-[var(--yellow)]/60">
+            <option value="telegram">تيليجرام</option>
+            <option value="whatsapp">واتساب</option>
+            <option value="snapchat">سناب شات</option>
+            <option value="tiktok">تيك توك</option>
+            <option value="twitter">تويتر</option>
+            <option value="other">أخرى</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-sm font-bold text-[#444]">وصف المنصة / الرابط / القناة</label>
+          <input id="refSourceDetail" type="text" class="mt-2 w-full px-4 py-3 rounded-xl bg-white border border-[var(--stroke)] focus:outline-none focus:border-[var(--yellow)]/60" placeholder="مثال: قناة التليجرام التعليمية أو حساب سناب..." />
+        </div>
+        <div>
+          <label class="text-sm font-bold text-[#444]">طريقة استلام المكافأة</label>
+          <select id="payoutMethod" class="mt-2 w-full px-4 py-3 rounded-xl bg-white border border-[var(--stroke)] focus:outline-none focus:border-[var(--yellow)]/60" onchange="togglePayoutFields()">
+            <option value="stars">نجوم تيليجرام</option>
+            <option value="bank">تحويل بنكي</option>
+          </select>
+        </div>
+        <!-- Telegram stars user -->
+        <div id="payoutStars" class="">
+          <label class="text-sm font-bold text-[#444]">معرف حساب تيليجرام لاستلام النجوم</label>
+          <input id="payoutTgUser" type="text" class="mt-2 w-full px-4 py-3 rounded-xl bg-white border border-[var(--stroke)] focus:outline-none focus:border-[var(--yellow)]/60" placeholder="@username" />
+        </div>
+        <!-- Bank details -->
+        <div id="payoutBank" class="hidden">
+          <label class="text-sm font-bold text-[#444]">اسم البنك</label>
+          <input id="payoutBankName" type="text" class="mt-2 w-full px-4 py-3 rounded-xl bg-white border border-[var(--stroke)] focus:outline-none focus:border-[var(--yellow)]/60" placeholder="مثال: البنك الأهلي" />
+          <label class="text-sm font-bold text-[#444] mt-4">رقم الآيبان</label>
+          <input id="payoutIban" type="text" class="mt-2 w-full px-4 py-3 rounded-xl bg-white border border-[var(--stroke)] focus:outline-none focus:border-[var(--yellow)]/60" placeholder="SAxxxxxxxxxxxxxxxxxxxxxx" />
+        </div>
+        <div class="flex items-start gap-2">
+          <input id="agreeReferral" type="checkbox" class="mt-1">
+          <label for="agreeReferral" class="text-sm text-[#555] leading-snug">
+            أقر بأنني أفهم شروط برنامج الإحالة، وأن السحب متاح بعد وصول الرصيد إلى 100 دولار، وأنني سأشارك رابط الموقع بأمانة.
+          </label>
+        </div>
+        <button type="submit" class="w-full px-4 py-3 rounded-2xl bg-[var(--yellow)] text-black font-extrabold hover:opacity-90 transition">✅ جهّز الرسالة للمشاركة</button>
+      </form>
+      <!-- Result area -->
+      <div id="referralResult" class="hidden mt-8 bg-[var(--card)] p-6 rounded-2xl border border-[var(--stroke)] shadow-md">
+        <div class="flex items-center justify-between gap-3">
+          <h2 class="font-extrabold text-lg">رسالة الإحالة الجاهزة</h2>
+          <button id="copyReferralBtn" class="px-3 py-1.5 rounded-xl bg-white border border-[var(--stroke)] hover:bg-gray-100 transition text-sm">نسخ الرسالة</button>
+        </div>
+        <textarea id="referralMsg" class="mt-3 w-full h-40 px-4 py-3 rounded-xl bg-white border border-[var(--stroke)] text-sm text-[#333]" readonly></textarea>
+        <p class="mt-3 text-xs text-[#666]">يمكنك الآن مشاركة الرسالة مع متابعيك عبر المنصة التي اخترتها.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+  <script>
+  // Show/hide payout fields based on selection
+  function togglePayoutFields() {
+    const method = document.getElementById('payoutMethod').value;
+    const starsDiv = document.getElementById('payoutStars');
+    const bankDiv  = document.getElementById('payoutBank');
+    if (method === 'stars') {
+      starsDiv.classList.remove('hidden');
+      bankDiv.classList.add('hidden');
+    } else {
+      starsDiv.classList.add('hidden');
+      bankDiv.classList.remove('hidden');
+    }
+  }
+  document.addEventListener('DOMContentLoaded', togglePayoutFields);
+  </script>
+</body>
+</html>

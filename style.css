@@ -4,12 +4,23 @@
  * the dark themed look and feel with subtle patterns and toast notifications.
  */
 
+/*
+ * Updated colour palette for a lighter, more inviting look.
+ * The palette retains a warm accent whilst brightening the background
+ * and card surfaces for better legibility and comfort. If you wish
+ * to adjust these further, tweak the variables below.
+ */
 :root{
-  --bg:#0B0B0B;
-  --card:#111111;
-  --yellow:#F7C948;
-  --muted:#A7A7A7;
-  --stroke:rgba(255,255,255,.10);
+  /* Light background for the entire page */
+  --bg: #F5F6FA;
+  /* Card background used behind sections and boxes */
+  --card: #FFFFFF;
+  /* Warm accent colour for buttons and highlights */
+  --yellow: #F0A500;
+  /* Muted text colour for secondary information */
+  --muted: #606060;
+  /* Border and stroke colour for subtle outlines */
+  --stroke: rgba(0, 0, 0, 0.1);
 }
 
 html,body{background:var(--bg)}
@@ -20,11 +31,13 @@ html,body{background:var(--bg)}
   inset:0;
   pointer-events:none;
   z-index:0;
-  opacity:.07;
+  /* Further reduce watermark opacity for an even cleaner appearance */
+  opacity:.005;
+  /* Lighten the radial gradients so they don't compete with content */
   background-image:
-    radial-gradient(circle at 20% 20%, rgba(247,201,72,.55), transparent 40%),
-    radial-gradient(circle at 80% 30%, rgba(247,201,72,.35), transparent 35%),
-    radial-gradient(circle at 50% 80%, rgba(247,201,72,.25), transparent 40%);
+    radial-gradient(circle at 20% 20%, rgba(247,201,72,.20), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(247,201,72,.10), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(247,201,72,.06), transparent 40%);
 }
 .wm::after{
   content:"Ayed Academy • STEP 2026 Courses";
@@ -36,18 +49,21 @@ html,body{background:var(--bg)}
   letter-spacing:2px;
   font-size: clamp(22px, 6vw, 64px);
   color:white;
-  opacity:.22;
+  /* Make watermark text even more subtle */
+  opacity:.02;
   white-space:nowrap;
 }
 
 /* Subtle grid background used in the hero section */
 .grid-bg{
+  /* Lighten the grid lines further to avoid distracting the content */
   background-image:
-    linear-gradient(to right, rgba(255,255,255,.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0,0,0,.005) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,.005) 1px, transparent 1px);
   background-size: 40px 40px;
   background-position: center;
-  mask-image: radial-gradient(circle at 50% 20%, black 30%, transparent 70%);
+  /* Soften the radial mask to reduce the whitening over the hero image */
+  mask-image: radial-gradient(circle at 50% 20%, black 15%, transparent 85%);
 }
 
 /* Toast container and cards for notifications */
@@ -62,12 +78,13 @@ html,body{background:var(--bg)}
   max-width: min(360px, calc(100vw - 32px));
 }
 .toast-card{
-  background: rgba(17,17,17,.92);
-  border: 1px solid rgba(255,255,255,.10);
+  /* Light toast background with subtle border to suit the light theme */
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.1);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 12px 12px;
-  box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
   transform: translateY(10px);
   opacity: 0;
   transition: all .35s ease;
@@ -80,14 +97,15 @@ html,body{background:var(--bg)}
   width:10px;
   height:10px;
   border-radius:999px;
-  background:var(--yellow);
-  box-shadow: 0 0 0 0 rgba(247,201,72,.55);
-  animation:pulse 1.8s infinite;
+  background: var(--yellow);
+  /* Glow uses the accent colour with reduced opacity */
+  box-shadow: 0 0 0 0 rgba(240,165,0,.55);
+  animation: pulse 1.8s infinite;
 }
 @keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(247,201,72,.55)}
-  70%{box-shadow:0 0 0 12px rgba(247,201,72,0)}
-  100%{box-shadow:0 0 0 0 rgba(247,201,72,0)}
+  0%{box-shadow:0 0 0 0 rgba(240,165,0,.55)}
+  70%{box-shadow:0 0 0 12px rgba(240,165,0,0)}
+  100%{box-shadow:0 0 0 0 rgba(240,165,0,0)}
 }
 
 /* Adjust anchor scroll offset for sticky header */
@@ -95,5 +113,12 @@ section{scroll-margin-top: 92px;}
 
 /* Custom scrollbar styling (optional) */
 ::-webkit-scrollbar{height:10px;width:10px}
-::-webkit-scrollbar-thumb{background:rgba(247,201,72,.35);border-radius:999px}
-::-webkit-scrollbar-track{background:rgba(255,255,255,.04)}
+::-webkit-scrollbar-thumb{
+  /* Scrollbar uses the accent colour with reduced opacity */
+  background: rgba(240,165,0,.35);
+  border-radius:999px;
+}
+::-webkit-scrollbar-track{
+  /* Light track for scrollbars */
+  background: rgba(0,0,0,.04);
+}

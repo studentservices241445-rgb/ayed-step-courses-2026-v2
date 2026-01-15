@@ -1,10 +1,13 @@
 // Simple service worker for offline support for the improved STEP courses site
-const CACHE_NAME = 'ayed-step-courses-improved-v1';
+// Bump cache name to force update of cached assets when styling changes.
+const CACHE_NAME = 'ayed-step-courses-v3-1';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
   '/intensive.html',
   '/comprehensive.html',
+  '/referral.html',
+  '/level-test.html',
   '/privacy.html',
   '/return.html',
   '/style.css',

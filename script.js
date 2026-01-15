@@ -109,9 +109,15 @@ if (enrollForm) {
     const reason = document.getElementById('reason')?.value.trim() || '';
     const notes = document.getElementById('notes')?.value.trim() || '';
     const receipt = document.getElementById('receipt')?.files?.[0];
+    const agree = document.getElementById('agreeTerms');
     if (!receipt) {
       showToast('أرفق الإيصال أولاً ❗');
       document.getElementById('receipt').focus();
+      return;
+    }
+    // Ensure terms are accepted if the checkbox is present
+    if (agree && !agree.checked) {
+      showToast('الرجاء الموافقة على الشروط والأحكام قبل المتابعة ❗');
       return;
     }
     // Determine labels
@@ -160,6 +166,101 @@ if (copyMsgBtn) {
     }
   });
 }
+
+// ====== Seats counters for courses ======
+// For the intensive course page, display a dynamic number of remaining seats.
+const intensiveSeatsEl = document.getElementById('intensiveSeats');
+if (intensiveSeatsEl) {
+  // Generate a pseudo-random seats count between 20 and 60 for demo purposes
+  const seatsIntensive = 20 + Math.floor(Math.random() * 41);
+  intensiveSeatsEl.textContent = seatsIntensive;
+}
+
+// For the comprehensive course page, display a dynamic number of remaining seats.
+const comprehensiveSeatsEl = document.getElementById('comprehensiveSeats');
+if (comprehensiveSeatsEl) {
+  const seatsComprehensive = 30 + Math.floor(Math.random() * 71);
+  comprehensiveSeatsEl.textContent = seatsComprehensive;
+}
+
+// ====== Referral program form ======
+// Handles creation of a shareable referral message and collects payout preferences.
+const referralForm = document.getElementById('referralForm');
+const referralResult = document.getElementById('referralResult');
+const referralMsgBox = document.getElementById('referralMsg');
+const copyReferralBtn = document.getElementById('copyReferralBtn');
+if (referralForm) {
+  referralForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Read form values
+    const name = document.getElementById('refName').value.trim();
+    const source = document.getElementById('refSource').value;
+    const sourceDetail = document.getElementById('refSourceDetail').value.trim();
+    const payoutMethod = document.getElementById('payoutMethod').value;
+    const tgUser = document.getElementById('payoutTgUser')?.value.trim() || '';
+    const bankName = document.getElementById('payoutBankName')?.value.trim() || '';
+    const iban = document.getElementById('payoutIban')?.value.trim() || '';
+    const agreeRef = document.getElementById('agreeReferral');
+    if (agreeRef && !agreeRef.checked) {
+      showToast('يجب قبول شروط برنامج الإحالة ❗');
+      return;
+    }
+    // Build message
+    let msgLines = [];
+    msgLines.push(`مرحباً! ${name ? 'أنا ' + name + '، ' : ''}أشارككم فرصة رائعة لرفع درجتكم في اختبار STEP.`);
+    msgLines.push('دورات STEP المكثفة والشاملة من أكاديمية عايد تقدم شرحًا متقنًا، خطط مذاكرة مرنة، نماذج محاكية، وتحديثات مستمرة.');
+    msgLines.push('انضم الآن واحصل على استشارة مجانية من المدرب، وتأكد من تحقيق نتيجتك المستهدفة بإذن الله.');
+    msgLines.push('للتسجيل والاستفادة من الخصم الحالي، استخدم هذا الرابط:');
+    msgLines.push(window.location.origin + '/ayed-step-courses-2026-v2/');
+    msgLines.push('');
+    msgLines.push('كل تسجيل عبر رابطك يضيف لك مكافأة 2 دولار (حوالي 7.5 ريال) تُضاف إلى رصيدك.');
+    msgLines.push('');
+    msgLines.push('شكراً لثقتكم، وبالتوفيق للجميع!');
+    const resultMsg = msgLines.join('\n');
+    if (referralMsgBox) referralMsgBox.value = resultMsg;
+    if (referralResult) referralResult.classList.remove('hidden');
+    showToast('تم تجهيز رسالة الإحالة ✅', 'يمكنك نسخها ومشاركتها الآن');
+  });
+}
+
+// Copy referral message
+if (copyReferralBtn) {
+  copyReferralBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(referralMsgBox.value);
+      showToast('تم نسخ رسالة الإحالة ✅');
+    } catch (e) {
+      referralMsgBox.select();
+      document.execCommand('copy');
+      showToast('تم نسخ رسالة الإحالة ✅');
+    }
+  });
+}
+
+// ====== Seats counters (simulate decreasing seats for courses) ======
+document.addEventListener('DOMContentLoaded', () => {
+  const intSeatsEl = document.getElementById('intSeats');
+  if (intSeatsEl) {
+    let seats = parseInt(intSeatsEl.textContent, 10) || 50;
+    // Decrease seats periodically until a minimum threshold
+    setInterval(() => {
+      if (seats > 20) {
+        seats--;
+        intSeatsEl.textContent = seats;
+      }
+    }, 30000);
+  }
+  const compSeatsEl = document.getElementById('compSeats');
+  if (compSeatsEl) {
+    let cSeats = parseInt(compSeatsEl.textContent, 10) || 75;
+    setInterval(() => {
+      if (cSeats > 30) {
+        cSeats--;
+        compSeatsEl.textContent = cSeats;
+      }
+    }, 45000);
+  }
+});
 
 // Demo notifications (optional). Uncomment to enable.
 // const demoEvents = [

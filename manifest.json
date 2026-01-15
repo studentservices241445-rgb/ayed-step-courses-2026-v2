@@ -1,11 +1,11 @@
 {
-  "name": "أكاديمية عايد | دورات STEP 2026",
-  "short_name": "Ayed STEP",
+  "name": "أكاديمية عايد",
+  "short_name": "أكاديمية عايد",
   "description": "منصة أكاديمية عايد لدورات STEP المكثفة والشاملة لعام 2026",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#0B0B0B",
-  "theme_color": "#0B0B0B",
+  "background_color": "#F5F6FA",
+  "theme_color": "#F0A500",
   "orientation": "portrait",
   "icons": [
     {

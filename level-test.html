@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#F5F6FA" />
+  <title>اختبار تحديد المستوى | أكاديمية عايد</title>
+  <meta name="description" content="اختبر مستواك في مهارات STEP واحصل على توصية لخطة المذاكرة الأنسب لك." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="text-[#242424] antialiased">
+  <div class="wm"></div>
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-[var(--stroke)]">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3 min-w-0">
+        <div class="w-10 h-10 rounded-2xl bg-[var(--yellow)]/15 border border-[var(--yellow)]/35 grid place-items-center">
+          <span class="font-extrabold text-[var(--yellow)]">A</span>
+        </div>
+        <div class="min-w-0">
+          <div class="font-extrabold leading-tight truncate">أكاديمية عايد</div>
+          <div class="text-xs text-[#555] truncate">اختبار تحديد المستوى</div>
+        </div>
+      </div>
+      <nav class="hidden lg:flex items-center gap-1 text-sm">
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="index.html">الرئيسية</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="intensive.html">الدورة المكثفة</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="comprehensive.html">الدورة الشاملة</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="level-test.html">اختبار المستوى</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button id="menuBtn" class="lg:hidden px-3 py-2 rounded-xl border border-[var(--stroke)] hover:border-gray-300 transition text-[#444]">
+          ☰
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="lg:hidden hidden border-t border-[var(--stroke)] bg-white/90 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-4 py-3 grid gap-2 text-sm">
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="index.html">الرئيسية</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="intensive.html">الدورة المكثفة</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="comprehensive.html">الدورة الشاملة</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-black/5 text-[#444]" href="level-test.html">اختبار المستوى</a>
+      </div>
+    </div>
+  </header>
+  <main class="relative z-10">
+    <section class="max-w-6xl mx-auto px-4 pt-12 pb-12">
+      <h1 class="text-3xl font-extrabold mb-4">🎯 اختبار تحديد المستوى</h1>
+      <p class="text-[#555] leading-relaxed max-w-2xl mb-6">
+        أجب عن الأسئلة التالية لمعرفة المستوى المناسب لك في مهارات STEP. بعد الانتهاء ستظهر لك الخطة المقترحة مع رابط للتسجيل.
+      </p>
+      <form id="levelTestForm" class="space-y-6 bg-[var(--card)] p-6 rounded-2xl border border-[var(--stroke)] shadow-md">
+        <!-- Question 1 -->
+        <div>
+          <label class="font-bold text-[#444]">1. كيف تقيم نفسك في قواعد اللغة الإنجليزية؟</label>
+          <div class="mt-2 space-y-2 text-[#555]">
+            <label class="flex items-center gap-2"><input type="radio" name="q1" value="1" required> ضعيف</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q1" value="2"> متوسط</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q1" value="3"> جيد جداً</label>
+          </div>
+        </div>
+        <!-- Question 2 -->
+        <div>
+          <label class="font-bold text-[#444]">2. كيف تصف قدرتك على فهم نصوص قراءة باللغة الإنجليزية؟</label>
+          <div class="mt-2 space-y-2 text-[#555]">
+            <label class="flex items-center gap-2"><input type="radio" name="q2" value="1" required> أحتاج وقت طويل للفهم</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q2" value="2"> أفهم النقاط الرئيسية لكن بتردد</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q2" value="3"> أفهم بسهولة وأحدد التفاصيل</label>
+          </div>
+        </div>
+        <!-- Question 3 -->
+        <div>
+          <label class="font-bold text-[#444]">3. كيف تقييم مهارتك في الاستماع للإنجليزية؟</label>
+          <div class="mt-2 space-y-2 text-[#555]">
+            <label class="flex items-center gap-2"><input type="radio" name="q3" value="1" required> لا ألتقط الفكرة بسهولة</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q3" value="2"> ألتقط الفكرة العامة لكنني أتعثر</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q3" value="3"> ألتقط التفاصيل بدون صعوبة</label>
+          </div>
+        </div>
+        <!-- Question 4 -->
+        <div>
+          <label class="font-bold text-[#444]">4. كم تبقّى على موعد اختبارك؟</label>
+          <div class="mt-2 space-y-2 text-[#555]">
+            <label class="flex items-center gap-2"><input type="radio" name="q4" value="1" required> أقل من أسبوعين</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q4" value="2"> بين أسبوعين وشهر</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q4" value="3"> أكثر من شهر</label>
+          </div>
+        </div>
+        <!-- Question 5 -->
+        <div>
+          <label class="font-bold text-[#444]">5. أي نوع من الخطط يناسبك؟</label>
+          <div class="mt-2 space-y-2 text-[#555]">
+            <label class="flex items-center gap-2"><input type="radio" name="q5" value="1" required> خطة قصيرة ومكثفة</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q5" value="2"> خطة متوسطة ومدروسة</label>
+            <label class="flex items-center gap-2"><input type="radio" name="q5" value="3"> خطة طويلة وشاملة</label>
+          </div>
+        </div>
+        <button type="submit" class="w-full px-4 py-3 rounded-2xl bg-[var(--yellow)] text-black font-extrabold hover:opacity-90 transition">🔍 احسب المستوى المناسب لي</button>
+      </form>
+      <div id="levelResult" class="hidden mt-8 bg-[var(--card)] p-6 rounded-2xl border border-[var(--stroke)] shadow-md">
+        <h2 class="font-extrabold text-lg mb-2">نتيجة الاختبار</h2>
+        <p id="levelMessage" class="text-[#444] mb-4"></p>
+        <a id="levelAction" href="#" class="inline-block px-4 py-3 rounded-2xl bg-[var(--yellow)] text-black font-extrabold hover:opacity-90 transition">التفاصيل والتسجيل</a>
+      </div>
+    </section>
+  </main>
+  <div class="toast" id="toast"></div>
+  <script src="script.js"></script>
+  <script>
+    // Evaluate the level based on answers
+    document.getElementById('levelTestForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      let total = 0;
+      for (const value of formData.values()) {
+        total += parseInt(value || '0');
+      }
+      const resultBox = document.getElementById('levelResult');
+      const msgEl = document.getElementById('levelMessage');
+      const actionEl = document.getElementById('levelAction');
+      let plan = '';
+      let link = '';
+      if (total <= 7) {
+        plan = 'ننصحك بخطة 30 يوم للتحضير التدريجي والهدوء.';
+        link = 'intensive.html#plans';
+      } else if (total <= 11) {
+        plan = 'خطة 14 يوم مناسبة لك مع تركيز على مهاراتك الحالية.';
+        link = 'intensive.html#plans';
+      } else {
+        plan = 'خطة 7 أيام أو 15 يوم قد تكون كافية لمراجعة سريعة.';
+        link = 'intensive.html#plans';
+      }
+      msgEl.textContent = plan + ' يمكنك الانتقال للتفاصيل والتسجيل من الرابط أدناه.';
+      actionEl.href = link;
+      resultBox.classList.remove('hidden');
+      resultBox.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  </script>
+</body>
+</html>
